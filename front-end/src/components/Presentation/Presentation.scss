@@ -1,0 +1,62 @@
+.wrapper {
+    position: relative;
+}
+
+.presentation {
+    height: 32vw;
+    width: 100%;
+}
+
+.content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5vw;
+    max-width: 50%;
+    bottom: 10%;
+    left:20%;
+
+    p {
+        color: white;
+        font-size: 1vw;
+        animation: fadeIn 10s linear;
+    }
+
+    button {
+        border: none;
+        color: #747474;
+        font-weight: 500;
+        padding: 1vw 2vw;
+        font-size: max(1vw, 13px);
+        border-radius: 50px;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1050px) {
+    .wrapper {
+
+        .content {
+            max-width: 45%;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .wrapper {
+
+        .content {
+            max-width: 65%;
+
+            p {
+                display: none;
+            }
+
+            button {
+                display: none;
+            }
+        }
+    }
+
+}

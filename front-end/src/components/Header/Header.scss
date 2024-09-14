@@ -1,0 +1,158 @@
+.header {
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        width: 200px;
+        background-color: transparent;
+    }
+
+    .header-left {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        font-size: 18px;
+        color: #49557e;
+
+        li {
+            cursor: pointer;
+            // position: relative;
+
+            // &::after {
+            //     content: "";
+            //     position: absolute;
+            //     bottom: 0;
+            //     left: 0;
+            //     height: 2px;
+            //     width: 100%;
+            //     background-color: #49557e;
+            // }
+
+            // &.active::after {
+            //     animation: underline-animation 2s linear 0s 1;
+            // }
+        }
+
+        .active {
+            padding-bottom: 2px;
+            border-bottom: 2px solid #49557e;
+        }
+
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        .shopping-cart {
+            position: relative;
+
+            .dot {
+                position: absolute;
+                min-width: 8px;
+                min-height: 8px;
+                background-color: tomato;
+                border-radius: 5px;
+                top: 0px;
+                right: 0px;
+            }
+        }
+    }
+
+    button {
+        background: transparent;
+        font-size: 16px;
+        color: #49557e;
+        border: 1px solid tomato;
+        padding: 10px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: #fff4f2;
+        }
+    }
+}
+
+
+// @keyframes underline-animation {
+//     from {
+//         width: 0%;
+//         padding-bottom: 2px;
+//         border-bottom: 2px solid #49557e;
+//     }
+//     to {
+//         width: 100%;
+//         padding-bottom: 2px;
+//         border-bottom: 2px solid #49557e;
+//     }
+// }
+
+@media (max-width: 1050px) {
+    .header {
+        .logo {
+            width: 140px;
+        }
+
+        .header-left {
+            gap: 20px;
+            font-size: 17px;
+        }
+
+        .header-right {
+            gap: 30px;
+
+            .shopping-cart {
+                width: 22px;
+            }
+
+            button {
+                padding: 8px 25px;
+            }
+        }
+
+
+    }
+}
+
+@media (max-width: 900px) {
+    .header {
+        .logo {
+            width: 120px;
+        }
+
+        .header-left {
+            gap: 15px;
+            font-size: 16px;
+        }
+
+        .header-right {
+            gap: 20px;
+
+            .shopping-cart {
+                width: 20px;
+            }
+
+            button {
+                padding: 7px 20px;
+                font-size: 15px;
+            }
+        }
+
+
+    }
+}
+
+@media (max-width: 750px) {
+    .header {
+        font-size: 14px;
+        
+        .header-left {
+            display: none;
+        }
+    }
+}
