@@ -14,9 +14,11 @@
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.0.0",
     "@mui/material": "^6.0.0",
+    "axios": "^1.7.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1",
+    "react-toastify": "^10.0.6",
     "recoil": "^0.7.7",
     "sass": "^1.77.8"
   },

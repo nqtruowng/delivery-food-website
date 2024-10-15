@@ -8,6 +8,7 @@ import appetizer from './appetizer.webp'
 import facebook from './facebook.png'
 import insta from './insta.png'
 import linkedin from './linkedin.png'
+import upload from './upload.png'
 
 
 export const assets = {
@@ -15,7 +16,8 @@ export const assets = {
     present,
     facebook,
     insta,
-    linkedin
+    linkedin,
+    upload
 }
 
 export const menu_list = [
