@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios'
 import { toast } from 'react-toastify';
 
@@ -17,6 +17,7 @@ const Add = () => {
     const onChangeHandler = (event) => {
         const name = event.target.name
         const value = event.target.value
+        
         setSubmit(submit => ({...submit, [name]: value}))
     }
     
@@ -28,7 +29,7 @@ const Add = () => {
         formData.append('price', submit.price)
         formData.append('category', submit.category)
         formData.append('image', image)
-        const res = await axios.post(`${import.meta.env.VITE_API_URL}/food/add`, formData)
+        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/food/add`, formData)
         if (res.data.success) {
             setSubmit({
                 name: '',
@@ -45,15 +46,15 @@ const Add = () => {
 
     return (
         <div className="add">
-            <form className="flex-col" onSubmit={onSubmitHandler}>
-                <div className="add_img_upload flex-col">
+            <form className="flex_col" onSubmit={onSubmitHandler}>
+                <div className="add_img_upload flex_col">
                     <p>Upload Image</p>
                     <label htmlFor="image">
                         <img src={image ? URL.createObjectURL(image) : assets.upload} />
                     </label>
                     <input onChange={(e) => setImage(e.target.files[0])} type="file" id="image" hidden required />
                 </div>
-                <div className="add_product_name flex-col">
+                <div className="add_product_name flex_col">
                     <p>Product Name</p>
                     <input
                         type="text"
@@ -64,7 +65,7 @@ const Add = () => {
                         value={submit.name}
                     />
                 </div>
-                <div className="add_product_des flex-col">
+                <div className="add_product_des flex_col">
                     <p>Product Description</p>
                     <textarea
                         name="description"

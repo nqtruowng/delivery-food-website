@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { ShoppingCartRounded } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 import './Header.scss';
 import { assets } from '../../assets/assets';
+import { isLogin } from '../../GlobalState';
 
 const Header = ({ setShowLogin }) => {
     const [url, setUrl] = useState('home')
     const navigate = useNavigate()
+    const checkIsLogin = useRecoilValue(isLogin)
     
     return (
         <div className="header">
@@ -33,12 +36,12 @@ const Header = ({ setShowLogin }) => {
                 </li>
                 <li
                     onClick={() => {
-                        setUrl('mobile-app')
-                        navigate('/mobile-app')
+                        setUrl('my-order')
+                        navigate('/my-order')
                     }}
-                    className={url === 'mobile-app' ? 'active' : ''}
+                    className={url === 'my-order' ? 'active' : ''}
                 >
-                    mobile-app
+                    my-order
                 </li>
                 <li
                     onClick={() => {
@@ -55,7 +58,15 @@ const Header = ({ setShowLogin }) => {
                     <ShoppingCartRounded onClick={() => navigate('/cart')} />
                     <div className="dot"></div>
                 </div>
-                <button onClick={() => setShowLogin(true)}>sign in</button>
+                <div>
+                    {   checkIsLogin ? 
+                        <button className="user">
+                            <img src={assets.user} />
+                        </button> 
+                        :
+                        <button className="sign_in" onClick={() => setShowLogin(true)}>sign in</button>
+                    }
+                </div>
             </div>
         </div>
     );

@@ -14,10 +14,19 @@
         gap: 80px;
         justify-content: center;
 
+        .footer_content_left {
+            .social {
+                display: flex;
+                // gap: 6vh;
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+
         .footer_content_left, .footer_content_right, .footer_content_center {
             display: flex;
             flex-direction: column;
-            align-items: start;
+            align-items: flex-start;
             padding-left: 8vw;
 
             .footer_logo {
@@ -26,7 +35,6 @@
 
             .social_network {
                 width: 40px;
-                margin-left: 30px;
             }
 
             li {

@@ -6,7 +6,7 @@ import './AdminLayout.scss'
 
 const AdminLayout = ({ children }) => {
     return (
-        <div className="">
+        <div className="layout">
             <NavBar />
             <hr />
             <div className='app_content'>

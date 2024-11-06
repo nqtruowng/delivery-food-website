@@ -17,7 +17,9 @@ const Presentation = () => {
            crafted with the finest ingredients and culinary expertise.
            Our mission is to satisfy your cravings and elevate your dining
            experience, one delicious meal at all time</p>
-        </div>
+      </div>
+      <button className="menu"
+      onClick={() => navigate("/menu")}>Menu</button>
     </div>
   )
 }

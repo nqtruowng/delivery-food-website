@@ -10,15 +10,21 @@ const Footer = () => {
                 <div className="footer_content_left">
                     <img src={assets.logo} alt="" className='footer_logo' />
                     <div className='social'>
-                        <a href='https://www.facebook.com/Pizza4Ps' target='blank'>
-                            <img src={assets.facebook} alt="" className='social_network'/>
-                        </a>
-                        <a href='https://www.instagram.com/pizza4ps' target='blank'>
-                            <img src={assets.insta} alt="" className='social_network'/>
-                        </a>
-                        <a href='https://www.linkedin.com/company/pizza4ps/?originalSubdomain=vn' target='blank'>
-                            <img src={assets.linkedin} alt='' className='social_network' />
-                        </a>
+                        <div>
+                            <a href='https://www.facebook.com/Pizza4Ps' target='blank'>
+                                <img src={assets.facebook} alt="" className='social_network'/>
+                            </a>
+                        </div>
+                        <div>
+                            <a href='https://www.instagram.com/pizza4ps' target='blank'>
+                                <img src={assets.insta} alt="" className='social_network'/>
+                            </a>
+                        </div>
+                        <div>
+                            <a href='https://www.linkedin.com/company/pizza4ps/?originalSubdomain=vn' target='blank'>
+                                <img src={assets.linkedin} alt='' className='social_network' />
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div className="footer_content_center">

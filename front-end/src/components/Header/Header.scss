@@ -60,37 +60,46 @@
                 right: 0px;
             }
         }
-    }
 
-    button {
-        background: transparent;
-        font-size: 16px;
-        color: #49557e;
-        border: 1px solid tomato;
-        padding: 10px 30px;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: 0.3s;
+        .user {
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background-color: #fff;
+        }
+        img {
+            width: 30px;
+            height: 30px;
+            
+        }
 
-        &:hover {
-            background-color: #fff4f2;
+        // .user {
+        //     width: 30px;
+        //     height: 30px;
+        //     border-radius: 50%;
+
+        //     img {
+        //         width: 1vw;
+        //         height: 1vw;
+        //     }
+        // }
+
+        .sign_in {
+            background: transparent;
+            font-size: 16px;
+            color: #49557e;
+            border: 1px solid tomato;
+            padding: 10px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+                background-color: #fff4f2;
+            }
         }
     }
 }
-
-
-// @keyframes underline-animation {
-//     from {
-//         width: 0%;
-//         padding-bottom: 2px;
-//         border-bottom: 2px solid #49557e;
-//     }
-//     to {
-//         width: 100%;
-//         padding-bottom: 2px;
-//         border-bottom: 2px solid #49557e;
-//     }
-// }
 
 @media (max-width: 1050px) {
     .header {
@@ -110,7 +119,7 @@
                 width: 22px;
             }
 
-            button {
+            .sign_in {
                 padding: 8px 25px;
             }
         }
@@ -137,7 +146,7 @@
                 width: 20px;
             }
 
-            button {
+            .sign_in {
                 padding: 7px 20px;
                 font-size: 15px;
             }
@@ -154,5 +163,16 @@
         .header-left {
             display: none;
         }
+
+    //     .header-right {
+    //         width: 30px;
+    //         height: 30px;
+    //         border-radius: 50%;
+
+    //         img {
+    //             width: 1vw;
+    //             height: 1vw;
+    //         }
+    //     }
     }
 }

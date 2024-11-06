@@ -20,6 +20,14 @@ const SideBar = () => {
                     <InventoryRounded />
                     <p>Oders</p>
                 </NavLink>
+                <NavLink to='/admin/support' className="sidebar_option">
+                    <InventoryRounded />
+                    <p>Support</p>
+                </NavLink>
+                <NavLink to='/admin/analytics' className="sidebar_option">
+                    <InventoryRounded />
+                    <p>Analytics</p>
+                </NavLink>
             </div>
         </div>
     );

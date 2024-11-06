@@ -1,0 +1,184 @@
+.show_chatting {
+    .chatting {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .chat_icon {
+        span {
+            &:first-child {
+                opacity: 0;
+            }
+
+            &:last-child {
+                opacity: 1;
+            }
+        }
+    }
+
+    .show {
+        transform: rotate(90deg);
+        span {
+            &:last-child {
+                opacity: 1;
+            }
+            &:first-child {
+                opacity: 0;
+            }
+        }
+    }
+
+    .hide {
+        & ~ .chatting {
+            display: none;
+        }
+        span {
+            &:first-child {
+                opacity: 1;
+            }
+            &:last-child {
+                opacity: 0;
+            }
+        }
+    }
+}
+.chat_icon {
+    position: fixed;
+    right: 40px;
+    bottom: 35px;
+    height: 50px;
+    width: 50px;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #3D8519;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s linear;
+
+    span {
+        position: absolute;
+    }
+}
+
+.chatting {
+    z-index: 1;
+    position: fixed;
+    right: 40px;
+    bottom: 100px;
+    width: 400px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 15px;
+    transform: scale(0.5);
+    opacity: 0;
+    transform-origin: bottom right;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+        0 32px 64px -48px rgba(0, 0, 0, 0.5);
+    transition: all 0.1s ease;
+
+    header {
+        background: #3D8519;
+        padding: 16px 0;
+        text-align: center;
+
+        h2 {
+            color: #fff;
+            font-size: 1.4rem;
+        }
+    }
+
+    .chatbox {
+        height: 510px;
+        overflow-y: auto;
+        padding: 15px 20px 70px;
+
+        .chat {
+            display: flex;
+            // flex-direction: column;
+
+            span {
+                color: #fff;
+                font-size: 16px;
+                // padding: 12px 14px;
+                width: fit-content;
+            }
+        }
+
+        .incoming {
+            color: #000;
+            border-radius: 10px 10px 10px 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            margin-top: 10px;
+            
+            div {
+                width: fit-content;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                border-radius: 10px 10px 10px 10px;
+                background: #303030;
+                padding: 8px 12px;
+            }
+        }
+
+        .outgoing {
+            margin: 20px 0;
+            justify-content: flex-end;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            div {
+                width: fit-content;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                border-radius: 10px 10px 10px 10px;
+                background: #3D8519;
+                padding: 8px 12px;
+            }
+        }
+    }
+
+    .chat_input {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: #fff;
+        padding: 5px 20px;
+        border-top: 1px solid #ccc;
+        display: flex;
+        gap: 5px;
+
+        textarea {
+            height: 55px;
+            width: 100%;
+            border: none;
+            outline: none;
+            resize: none;
+            font-size: 16px;
+            padding: 16px 15px 16px 0;
+            overflow-y: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+
+            &:valid {
+                ~ span {
+                    visibility: visible;
+                }
+            }
+        }
+
+        span {
+            align-self: flex-end;
+            color: #3D8519;
+            font-size: 1.35rem;
+            cursor: pointer;
+            height: 55px;
+            line-height: 55px;
+            visibility: hidden;
+        }
+    }
+}
