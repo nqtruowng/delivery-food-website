@@ -9,6 +9,7 @@ import facebook from './facebook.png'
 import insta from './insta.png'
 import linkedin from './linkedin.png'
 import upload from './upload.png'
+import user from './user.png'
 
 
 export const assets = {
@@ -17,7 +18,8 @@ export const assets = {
     facebook,
     insta,
     linkedin,
-    upload
+    upload,
+    user
 }
 
 export const menu_list = [
