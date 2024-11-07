@@ -22,13 +22,11 @@ const Menu = () => {
     return (
         <>
             <h1>Menu</h1>
-          <div className="menu_wrapper">
-            {foods.map((food) => {
-                return (
-                    <FoodCard food={food} />
-                )
-            })}
-        </div>
+            <div className="menu_wrapper">
+                {foods.map((food) => {
+                    return <FoodCard food={food} />
+                })}
+            </div>
         </>
     )
 }

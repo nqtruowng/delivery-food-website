@@ -3,10 +3,29 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
+}
 
-    h1 {
-        font-size: 2rem;
-        margin-bottom: 30px;
+h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: rgb(133, 171, 5);
+}
+
+@media (max-width: 1150px) {
+    .menu_wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
     }
+}
 
+@media (max-width: 900px) {
+    .menu_wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 750px) {
+    .menu_wrapper {
+        grid-template-columns: 1fr;
+    }
 }
