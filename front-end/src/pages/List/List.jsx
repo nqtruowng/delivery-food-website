@@ -7,7 +7,8 @@ import './List.scss'
 
 const List = () => {
     const [list, setList] = useState([])
-
+    const [price, setPrice] = useState({})
+    const [edit, setEdit] = useState(false)
     const fetchListFood = async () => {
         const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/food/list`)
         if (res.data.success) {
@@ -23,6 +24,14 @@ const List = () => {
     
     const removeFood = async (foodId) => {
         const res = await axios.delete(`${import.meta.env.VITE_API_URL}/api/food/remove/${foodId}`)
+        await fetchListFood()
+    }
+    const handleOnChange = (e, index) => {
+        setPrice({value: parseInt(e.target.value).toString(), index})
+    }
+    const updatePrice = async (foodId) => {
+        const newPrice = price.value
+        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/food/update/${foodId}`, {newPrice})
         await fetchListFood()
     }
 
@@ -45,9 +54,9 @@ const List = () => {
                         <p>{item.category}</p>
                         <div>
                             <b>$</b>
-                            <input type='Number' name='price' value={item.price} />
+                            <input onFocus={() => setEdit(true)} onBlur={() => setEdit(false)} type='Number' name='price' value={edit && price.index === index ? (price.value || 0) : item.price} onChange={(e) => handleOnChange(e, index)} />
                         </div>
-                        <DoneRounded className='cursor' />
+                        <DoneRounded className='cursor' onClick={() => updatePrice(item._id)} />
                         <DeleteForeverRounded className='cursor' onClick={() => removeFood(item._id)} />
                     </div>
                 })}

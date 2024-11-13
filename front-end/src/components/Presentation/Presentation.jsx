@@ -16,10 +16,9 @@ const Presentation = () => {
         <p>Choose from diverse menu featuring a delectable array of dishes
            crafted with the finest ingredients and culinary expertise.
            Our mission is to satisfy your cravings and elevate your dining
-           experience, one delicious meal at all time</p>
+           experience, one delicious meal at all time
+        </p>
       </div>
-      <button className="menu"
-      onClick={() => navigate("/menu")}>Menu</button>
     </div>
   )
 }

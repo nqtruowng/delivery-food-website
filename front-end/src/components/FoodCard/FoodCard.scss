@@ -57,6 +57,11 @@
         width: max(14vw, 300px);
         padding: 8px 24px;
     }
+    span {
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 12px;
+    }
     button {
         height: 50px;
         width: 140px;
@@ -120,7 +125,7 @@
 
     p {
         font-size: 14px;
-        width: max(14vw, 220px);
+        width: max(12vw, 220px);
         height: 70px;
         overflow: hidden;
         display: -webkit-box;

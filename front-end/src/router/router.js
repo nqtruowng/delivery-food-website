@@ -12,6 +12,8 @@ import Analytics from '../pages/Analytics/Analytics'
 
 import AdminLayout from  '../Layout/AdminLayout/AdminLayout'
 import UserLayout from '../Layout/UserLayout/UserLayout'
+import Verify from '../pages/Verify/Verify'
+import { layer } from '@fortawesome/fontawesome-svg-core'
 
 export const publicRoutes = [
     { path: '/', component: Home, layout: UserLayout },
@@ -19,7 +21,8 @@ export const publicRoutes = [
     { path: '/placeorder', component: PlaceOrder, layout: UserLayout },
     { path: '/menu', component: Menu, layout: UserLayout },
     { path: '/contact-us', component: Contact, layout: UserLayout },
-    { path: '/my-order', component: MyOrder, layout: UserLayout}
+    { path: '/my-order', component: MyOrder, layout: UserLayout},
+    { path: '/verify', component: Verify, layout: UserLayout}
 ]
 
 export const adminRoutes = [

@@ -12,4 +12,28 @@
         width: 30px;
         cursor: pointer;
     }
+    .user {
+        background-color: #DDD6C5;
+        position: relative;
+
+        .signout {
+            width: 100px;
+            height: 20px;
+            // width: fit-content;
+            background: #fff;
+            border-radius: 12px;
+            position: absolute;
+            left: -100%;
+            visibility: hidden;
+            p {
+                width: 100px;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+            }
+        }
+        .show_signout {
+            visibility: visible;
+        }
+    }
 }

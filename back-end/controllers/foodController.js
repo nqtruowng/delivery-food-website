@@ -46,4 +46,16 @@ const removeFood =  async (req, res) => {
     }
 }
 
-export { addFood, listFood, removeFood }
+const updatePrice = async (req, res) => {
+    const { newPrice } = req.body
+    const id = req.params.id
+    try {
+        const foods = await foodModel.findByIdAndUpdate(id, {price: newPrice})
+        res.json({success: true, data: foods})
+    } catch (error) {
+        console.log(error)
+        res.json({success: false, message: 'error'})
+    }
+}
+
+export { addFood, listFood, removeFood, updatePrice }

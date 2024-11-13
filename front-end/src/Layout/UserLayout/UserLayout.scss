@@ -1,0 +1,7 @@
+.wrapper_app{
+    // display: grid;
+    // grid-template-rows: 2fr auto;
+    .app {
+        min-height: calc(100vh - 342px);
+    }
+}

@@ -18,6 +18,10 @@ a[href] {
     text-decoration: none;
 }
 
+html {
+    background: #DDD6C5;
+}
+
 .app {
     width: 80%;
     margin: auto;
@@ -30,6 +34,12 @@ a[href] {
     100% {
         opacity: 1;
     }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 @media (max-width:600px) {

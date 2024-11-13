@@ -8,6 +8,7 @@ import foodRouter from './routes/foodRoutes.js'
 import userRouter from './routes/userRoutes.js'
 import chatRouter from './routes/chatRoutes.js'
 import messageRouter from './routes/messageRoutes.js' 
+import orderRouter from './routes/orderRoutes.js'
 
 dotenv.config()
 const app = exprees()
@@ -41,6 +42,9 @@ app.use('/api/chat', chatRouter)
 
 //message
 app.use('/api/message', messageRouter)
+
+//order
+app.use('/api/order', orderRouter)
 
 app.get('/', (req, res) => {
     res.send('API WORKING')

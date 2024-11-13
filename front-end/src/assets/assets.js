@@ -10,7 +10,10 @@ import insta from './insta.png'
 import linkedin from './linkedin.png'
 import upload from './upload.png'
 import user from './user.png'
-
+import iconMinus from './icon-minus.webp'
+import iconPlus from './icon-plus.webp'
+import parcel from './parcel.png'
+import burger from './burger.png'
 
 export const assets = {
     logo,
@@ -19,7 +22,11 @@ export const assets = {
     insta,
     linkedin,
     upload,
-    user
+    user,
+    iconMinus,
+    iconPlus,
+    parcel,
+    burger
 }
 
 export const menu_list = [

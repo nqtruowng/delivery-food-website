@@ -1,16 +1,18 @@
 import React from 'react';
 
+import './UserLayout.scss'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
+
 const UserLayout = ({ children, setShowLogin }) => {
     return (
-        <div>
+        <div className='wrapper_app'>
             <div className="app">
                 <Header setShowLogin={setShowLogin} />
                 {children}
             </div>
-            <Footer />
+            <Footer className="footer" />
         </div>
     );
 };

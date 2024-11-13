@@ -7,7 +7,7 @@ import FoodCard from '../../components/FoodCard/FoodCard'
 const Menu = () => {
     const [foods, setFoods] = useState([])
     useEffect(() => {
-        ;(async () => {
+        (async () => {
             const foods = await axios.get(
                 `${import.meta.env.VITE_API_URL}/api/food/list`
             )
@@ -17,14 +17,12 @@ const Menu = () => {
         })()
     }, [])
 
-    console.log(foods)
-
     return (
         <>
             <h1>Menu</h1>
             <div className="menu_wrapper">
                 {foods.map((food) => {
-                    return <FoodCard food={food} />
+                    return <FoodCard food={food} key={food._id} />
                 })}
             </div>
         </>

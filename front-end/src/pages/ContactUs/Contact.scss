@@ -1,0 +1,90 @@
+.container {
+    width: 80%;
+    margin: 50px auto;
+    .contact-box {
+        background: #ffffff;
+        display: flex;
+        border-radius: 20px;
+        .container-left {
+            flex-basis: 60%;
+            padding: 40px 60px;
+
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+            h3 {
+                font-size: 25px;
+                color: #353535;
+                margin-bottom: 20px;
+            }
+        }
+        .container-right {
+            flex-basis: 40%;
+            padding: 40px 60px;
+            background: #562b14;
+            color: #ffffff;
+            border-radius: 0px 20px 20px 0px;
+            tr {
+                td {
+                    padding-top: 20px;
+
+                    &:first-child() {
+                        font-size: 20px;
+                        font-weight: 600;
+                        padding-right: 20px;
+                    }
+                }
+            }
+            h3 {
+                font-size: 25px;
+                color: #ffffff;
+                margin-bottom: 20px;
+            }
+            .map {
+                iframe {
+                    width: 100%;
+                    border: none;
+                    border-radius: 10px;
+                    outline: none;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 767px) {
+    .container {
+        width: 90%;
+        h1 {
+            font-size: 40px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .container-left,
+        .container-right {
+            padding: 20px;
+            img {
+                width: 100%;
+            }
+        }
+        .container-right {
+            tr {
+                td {
+                    &:first-child() {
+                        tr td:first-child {
+                            font-size: 15px;
+                            font-weight: 600;
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

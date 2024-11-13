@@ -8,25 +8,43 @@ const createToken = (id) => {
 }
 
 export const loginUser = async (req, res) => {
-    const { username, password } = req.body
-    try {
+    const { username, password, token } = req.body
+    
+    if (token) {
+        try {
+            const user = await userModel.findOne({ token })
+            if (!user) {
+                return res.json({
+                    success: false,
+                    message: 'User does not exist !',
+                })
+            } else {
+                return res.json({ success: true, user })
+            }
+        } catch (error) {
+            console.log(error)
+            res.json({ success: false, message: 'Error' })
+        }
+    } else {
         const user = await userModel.findOne({ username })
-        if (!user) {
-            return res.json({
-                success: false,
-                message: 'User does not exist !',
-            })
-        }
-
-        const isMatch = bcrypt.compare(password, user.password)
-        if (!isMatch) {
-            return res.json({ success: false, message: 'Invalid password' })
-        }
-
         const token = createToken(user._id)
-        res.json({ success: true, token, user })
-    } catch (error) {
-        res.json({ success: false, message: 'Error' })
+        try {
+            const user = await userModel.findOneAndUpdate({ username }, {token : token})
+            if (!user) {
+                return res.json({
+                    success: false,
+                    message: 'User does not exist !',
+                })
+            }
+    
+            const isMatch = bcrypt.compare(password, user.password)
+            if (!isMatch) {
+                return res.json({ success: false, message: 'Invalid password' })
+            }
+            res.json({ success: true, token, user })
+        } catch (error) {
+            res.json({ success: false, message: 'Error' })
+        }
     }
 }
 
