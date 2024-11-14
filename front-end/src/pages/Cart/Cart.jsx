@@ -23,15 +23,29 @@ function getCookie(name) {
 const Cart = () => {
     const user = useRecoilValue(userInfor)
     const cart = useRecoilValue(cartItem)
+    const setCartItem = useSetRecoilState(cartItem)
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [address, setAddress] = useState('')
     let token = getCookie('token')
-    const handleMinusItem = (item)  => {
-        console.log(item);
+    const handleMinusItem = (food)  => {
+        const newItems = cart.map((item) => {
+            if (item._id === food._id)  {
+                return {...item, amount: item.amount - 1}
+            }
+            return item
+        })
+        const filterItems = newItems.filter((item) => item.amount !== 0)
+        setCartItem(filterItems)
     }
-    const handlePlusItem = (item) => {
-
+    const handlePlusItem = (food) => {
+        const newItems = cart.map((item) => {
+            if (item._id === food._id)  {
+                return {...item, amount: item.amount + 1}
+            }
+            return item
+        })
+        setCartItem(newItems)
     }
     const handleOnClickProcess = async (e) => {
         if (Object.keys(user).length === 0) {
@@ -67,7 +81,7 @@ const Cart = () => {
         }, 0)
         return result
     }, [cart])
-    console.log(user);
+    console.log(cart);
     
     return (
         <div className="cart">
