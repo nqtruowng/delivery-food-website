@@ -34,6 +34,18 @@ const listFood = async (req, res) => {
     }
 }
 
+const listFoodWithCondition = async (req, res) => {
+    const foodName = req.params.name
+
+    try {
+        const foods = await foodModel.find({name: { $regex: foodName, $options: "i" }})
+        res.json({success: true, data: foods})
+    } catch(e) {
+        console.log(e)
+        res.json({success: false, message: 'error'})
+    }
+}
+
 const removeFood =  async (req, res) => {
     try {
         const food = await foodModel.findById(req.params.id)
@@ -58,4 +70,4 @@ const updatePrice = async (req, res) => {
     }
 }
 
-export { addFood, listFood, removeFood, updatePrice }
+export { addFood, listFood, removeFood, updatePrice, listFoodWithCondition }

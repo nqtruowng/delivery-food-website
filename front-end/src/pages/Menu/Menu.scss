@@ -12,6 +12,50 @@ h1 {
     color: rgb(133, 171, 5);
 }
 
+.formField {
+    display: flex;
+    justify-content: center;
+    // text-align: center;
+    margin: 10px;
+    position: relative;
+    span {
+        position: absolute;
+        left: calc(50% - 125px);
+        top: 0;
+        padding: 13px 15px;
+        color: #333;
+        font-size: 16px;
+        font-weight: 600;
+        text-shadow: -1px -1px 0 #f1f1f1, 1px -1px 0 #f1f1f1, -1px 1px 0 #f1f1f1, 1px 1px 0 #f1f1f1;
+        transition: 0.3s ease-in-out;
+        pointer-events: none;
+    }
+    input {
+        width: 300px;
+        padding: 20px 15px 10px 15px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-color: #f1f1f1;
+        color: #333;
+        font-size: 16px;
+        font-weight: 550;
+        transition: 0.3s ease-in-out;
+        box-shadow: 0 0 0 5px transparent;
+
+        &:hover, &:focus {
+            box-shadow: 0 0 0 2px #333;
+        }
+
+        &:focus, &:valid {
+            ~ span {
+                transform: translateY(-12px) translateX(-5px) scale(0.95);
+                transition: 0.3s ease-in-out;
+            }
+        }
+    }
+}
+
 @media (max-width: 1150px) {
     .menu_wrapper {
         grid-template-columns: 1fr 1fr 1fr;
