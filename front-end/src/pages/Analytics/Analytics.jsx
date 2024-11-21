@@ -63,10 +63,17 @@ function calculateTotalByCategory(dataArray, categories) {
     return resultArray
 }
 
+const currentYear = new Date().getFullYear();
+const years = []
+for (let year = 2023; year <= currentYear; year++) {
+    years.push(year)
+}
+
 const Analytics = () => {
     const [orders, setOrders] = useState()
     const [revenueData, setRevenueData] = useState([])
     const [barData, setBarData] = useState([])
+    const [selectedYear, setSelectedYear] = useState(currentYear)
     const categories = ['Appetizer', 'Salad', 'Pizza', 'Pasta', 'Desserts']
     const labels = [
         'Jan',
@@ -85,7 +92,7 @@ const Analytics = () => {
     useEffect(() => {
         ;(async () => {
             const orders = await axios.get(
-                `${import.meta.env.VITE_API_URL}/api/order/list`
+                `${import.meta.env.VITE_API_URL}/api/order/list/${currentYear}`
             )
             if (orders.data.success) {
                 setOrders(orders.data.data)
@@ -97,10 +104,33 @@ const Analytics = () => {
         })()
     }, [])
 
-    console.log(revenueData, barData, orders)
+    const handleYearChange = (event) => {
+        (async () => {
+            const orders = await axios.get(
+                `${import.meta.env.VITE_API_URL}/api/order/list/${event.target.value}`
+            )
+            if (orders.data.success) {
+                setOrders(orders.data.data)
+                setRevenueData(calculateMonthlySum(orders.data.data))
+                setBarData(
+                    calculateTotalByCategory(orders.data.data, categories)
+                )
+            }
+        })()
+        setSelectedYear(event.target.value)
+    }
+
+    console.log(revenueData, barData, orders, years)
 
     return (
         <div className="chart">
+            <select className="yearSelect" value={selectedYear} onChange={handleYearChange}>
+                {years.map((year) => (
+                <option key={year} value={year}>
+                    {year}
+                </option>
+                ))}
+            </select>
             <div className="line_chart">
                 <Line
                     data={{

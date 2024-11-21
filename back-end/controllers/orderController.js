@@ -72,13 +72,29 @@ export const userOrders = async (req, res) => {
 }
 
 export const listOrders = async (req, res) => {
-    try {
-        const orders = await orderModel.find({payment: true}).sort({date: -1})
-        res.json({success: true, data: orders})
-    } catch (error) {
-        console.log(error)
-        res.json({success:false, message: error})
+    const { year } = req.params
+    
+    if (year) {
+        const startOfYear = new Date(`${year}-01-01T00:00:00Z`)
+        const endOfYear = new Date(`${year}-12-31T23:59:59Z`)
+
+        try {
+            const orders = await orderModel.find({date: { $gte: startOfYear, $lte: endOfYear }})
+            res.json({success: true, data: orders})
+        } catch (error) {
+            console.log(error)
+            res.json({success:false, message: error})
+        }
+    } else {
+        try {
+            const orders = await orderModel.find({payment: true}).sort({date: -1})
+            res.json({success: true, data: orders})
+        } catch (error) {
+            console.log(error)
+            res.json({success:false, message: error})
+        }
     }
+    
 }
 
 export const updateStatus = async (req, res) => {
