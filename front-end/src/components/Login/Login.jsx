@@ -8,9 +8,14 @@ import { CloseRounded } from '@mui/icons-material'
 import './Login.scss'
 import { isLogin, userInfor } from '../../GlobalState'
 
+const userNameandPasswordRegex = (user) => {
+    const regex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/
+    return regex.test(user)
+}
+
 const Login = ({ setShowLogin }) => {
     const [currentState, setCurrentState] = useState('Login')
-    const [ userData, setUserData ] = useState({})
+    const [userData, setUserData] = useState({})
     const setUser = useSetRecoilState(userInfor)
     const setIsLogin = useSetRecoilState(isLogin)
     const [token, setToken] = useState('')
@@ -35,11 +40,9 @@ const Login = ({ setShowLogin }) => {
                 setUser(res.data.user)
                 setIsLogin(true)
                 if (res.data.user.role === "admin") {
-                    // localStorage.setItem("admintoken", res.data.token)
                     document.cookie = `token = ${res.data.token}`
                     navigate("/admin/add")
                 } else if (res.data.user.role === "user") {
-                    // localStorage.setItem("usertoken", res.data.token)
                     document.cookie = `token = ${res.data.token}`
                 }
             } else {
@@ -47,16 +50,24 @@ const Login = ({ setShowLogin }) => {
             }
         } else {
             url += '/api/user/register'
-            
-            if (userData.password !== userData.repassword) {
-                toast.error("Your password and password comfirm are wrong")
-                const res = await axios.post(url, userData)
+            if (!userNameandPasswordRegex(userData.username)) {
+
+                console.log(userNameandPasswordRegex(userData.password), typeof userData.username);
+                
+                toast.error("Your username need at least 6 characters, uppercase and numberic")
+            } else if (!userNameandPasswordRegex(userData.password)) {
+                toast.error("Your password need at least 6 characters and 1 uppercase character")
             } else {
-                const res = await axios.post(url, userData)
-                if (!res.data.success) {
-                    toast.error("User has been exist")
+                if (userData.password !== userData.repassword) {
+                    toast.error("Your password and password comfirm are wrong")
+                    const res = await axios.post(url, userData)
                 } else {
-                    toast.success("Create successfull")
+                    const res = await axios.post(url, userData)
+                    if (!res.data.success) {
+                        toast.error("User has been exist")
+                    } else {
+                        toast.success("Create successfull")
+                    }
                 }
             }
         }
