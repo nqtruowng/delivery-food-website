@@ -73,6 +73,7 @@ export const userOrders = async (req, res) => {
 
 export const listOrders = async (req, res) => {
     const { year } = req.params
+    console.log(year, typeof year);
     
     if (year) {
         const startOfYear = new Date(`${year}-01-01T00:00:00Z`)

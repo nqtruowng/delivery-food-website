@@ -10,9 +10,10 @@ import { Value } from 'sass'
 const Orders = () => {
   const [orders, setOrders] = useState()
   const user = useRecoilValue(userInfor)
+  const currentYear = new Date().getFullYear()
 
   const fetchOrders = async () => {
-     const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/order/list`)
+     const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/order/list/${currentYear}`)
      if (res.data.success) {
       setOrders(res.data.data)
      }

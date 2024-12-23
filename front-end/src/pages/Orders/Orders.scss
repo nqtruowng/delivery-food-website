@@ -1,4 +1,6 @@
 .order_list {
+    max-height: calc(100% - 20px);
+    overflow-x: auto;
     .order_item {
         display: grid;
         grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
